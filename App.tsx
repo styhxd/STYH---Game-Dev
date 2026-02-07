@@ -31,21 +31,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans flex flex-col">
+    // FAILSAFE: w-full and max-w-full enforcement at the root level
+    <div className="w-full max-w-[100vw] min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans flex flex-col overflow-x-hidden">
       <Navbar currentPage={currentPage} setPage={setCurrentPage} />
       
       {/* Main Content Area with top padding to account for fixed navbar */}
-      <main className="flex-grow pt-20 relative z-10">
+      <main className="flex-grow pt-20 relative z-10 w-full">
         {renderPage()}
       </main>
 
-      <footer className="py-8 bg-black border-t border-white/10 text-center relative z-10 mt-auto">
+      <footer className="py-8 bg-black border-t border-white/10 text-center relative z-10 mt-auto w-full">
         <div className="max-w-7xl mx-auto px-4 flex flex-col items-center">
           <h2 className="font-display font-black text-2xl text-white mb-2 uppercase tracking-tighter">STYH</h2>
           <p className="text-gray-600 text-[10px] font-mono mb-2 uppercase tracking-widest">
             © {new Date().getFullYear()} STYH GAMES • Ferraz de Vasconcelos - SP
           </p>
-          <div className="flex gap-4 text-[10px] text-gray-700 font-mono uppercase">
+          <div className="flex flex-wrap justify-center gap-4 text-[10px] text-gray-700 font-mono uppercase px-4">
             <span>Paulo Gabriel L.S.</span> • <span>Daniel Pinhal Filho</span> • <span>Douglas Ambrósio</span>
           </div>
         </div>

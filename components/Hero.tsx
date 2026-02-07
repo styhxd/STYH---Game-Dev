@@ -30,14 +30,15 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
           </span>
         </div>
 
-        {/* The Brand Name as the Hero Title - MASSIVE */}
-        <h1 className="font-display font-black text-9xl md:text-[12rem] lg:text-[14rem] tracking-tighter text-white uppercase leading-[0.8] mb-4 mix-blend-screen drop-shadow-2xl">
+        {/* The Brand Name as the Hero Title - MASSIVE & FLUID */}
+        {/* FAILSAFE: Changed fixed text sizes to fluid VW units to ensure it never overflows the viewport width */}
+        <h1 className="font-display font-black text-[20vw] lg:text-[14rem] tracking-tighter text-white uppercase leading-[0.8] mb-4 mix-blend-screen drop-shadow-2xl">
           STYH
           <span className="text-brand-accent">.</span>
         </h1>
         
         {/* The Philosophy */}
-        <h2 className="font-display font-bold text-2xl md:text-5xl text-gray-500 uppercase tracking-widest mb-10 pl-2 flex flex-col md:block">
+        <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-5xl text-gray-500 uppercase tracking-widest mb-10 pl-2 flex flex-col md:block">
           <span className="text-white">CRIAMOS</span>
           <span className="hidden md:inline mx-4 text-brand-secondary">//</span>
           <span className="text-white">PUBLICAMOS</span>
@@ -45,7 +46,7 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
           <span className="text-white">EVOLUÍMOS</span>
         </h2>
         
-        <p className="font-sans text-lg text-gray-400 mb-12 max-w-xl leading-relaxed pl-2 border-l border-white/10 ml-2">
+        <p className="font-sans text-base md:text-lg text-gray-400 mb-12 max-w-xl leading-relaxed pl-2 border-l border-white/10 ml-2">
           Desenvolvedores da nossa própria história. <br/> 
           Criadores do <strong className="text-white">Vital Rush</strong> e especialistas em Unity & Unreal. <br/>
           Seu projeto pode ser o próximo.
