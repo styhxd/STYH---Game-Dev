@@ -8,7 +8,7 @@ const Games: React.FC = () => {
       {/* --- VITAL RUSH SECTION --- */}
       <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
         
-        {/* Background Image & Overlay - FIXED: Seamless blending */}
+        {/* Background Image & Overlay - FIXED: Seamless blending for wide screens */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://lh3.googleusercontent.com/d/1i4NAyU7cvCCdQP-P0PPFlYWiOxtzu2lG" 
