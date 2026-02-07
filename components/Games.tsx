@@ -25,8 +25,9 @@ const Games: React.FC = () => {
           <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-10"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-20 pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        {/* EXPANDED CONTAINER: max-w-[1800px] instead of 7xl */}
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-20 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
             
             {/* Text Content */}
             <div className="order-2 lg:order-1 flex flex-col justify-center">
@@ -35,7 +36,7 @@ const Games: React.FC = () => {
                 <span className="text-red-500 font-mono text-[10px] uppercase tracking-widest font-bold">Já Disponível • Android</span>
               </div>
               
-              {/* RESTORED: Gradient Text with padding fix to prevent H clipping */}
+              {/* Gradient Text Restored */}
               <h1 className="font-display font-black text-6xl md:text-8xl italic uppercase text-white mb-6 leading-[0.85] tracking-tighter drop-shadow-2xl">
                 VITAL <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700 pr-4 drop-shadow-[0_0_25px_rgba(220,38,38,0.4)]">
@@ -73,7 +74,7 @@ const Games: React.FC = () => {
             <div className="order-1 lg:order-2 relative h-[400px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end">
                
                {/* Orbit System Container */}
-               <div className="relative w-full max-w-[500px] aspect-square">
+               <div className="relative w-full max-w-[600px] aspect-square">
                  {/* Orbit Track 1 (Larger, Clockwise) */}
                  <div className="absolute inset-0 w-full h-full animate-spin-slower pointer-events-none z-20">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 lg:w-32 lg:h-32">
@@ -125,7 +126,8 @@ const Games: React.FC = () => {
          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
          <div className="absolute inset-0 bg-grid-pattern bg-[length:60px_60px] opacity-[0.03]"></div>
 
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+         {/* EXPANDED CONTAINER */}
+         <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
             <div className="flex flex-col items-center text-center">
               
               <div className="mb-8">
@@ -142,7 +144,7 @@ const Games: React.FC = () => {
                 "Quando o ritmo da terra encontra a fúria dos espíritos."
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto w-full">
                  <div className="p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors group">
                     <h3 className="text-purple-400 font-display font-bold uppercase mb-3 text-lg group-hover:text-purple-300">Ritmo</h3>
                     <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-400">Combate sincronizado com trilha sonora autoral que reage às suas ações.</p>

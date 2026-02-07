@@ -32,7 +32,8 @@ const Expertise: React.FC<ExpertiseProps> = ({ setPage }) => {
 
   return (
     <section className="min-h-screen py-16 bg-black relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Expanded Container */}
+      <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="mb-12 border-b border-white/10 pb-6 flex flex-col md:flex-row justify-between items-end gap-4">
           <div>
             <h2 className="font-display text-4xl md:text-5xl font-black text-white uppercase mb-2">
@@ -50,21 +51,21 @@ const Expertise: React.FC<ExpertiseProps> = ({ setPage }) => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {capabilities.map((cap, index) => (
             <div 
               key={index} 
-              className="group relative p-8 border border-white/10 bg-surface hover:border-white/30 transition-all duration-300"
+              className="group relative p-10 border border-white/10 bg-surface hover:border-white/30 transition-all duration-300"
             >
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-8">
                 <div className="flex-shrink-0 p-4 bg-black border border-white/10 rounded-sm">
                    {cap.icon}
                 </div>
                 <div>
-                   <h3 className="font-display text-xl font-bold text-white mb-2 uppercase tracking-wide group-hover:text-brand-secondary transition-colors">
+                   <h3 className="font-display text-2xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-brand-secondary transition-colors">
                      {cap.title}
                    </h3>
-                   <p className="font-sans text-gray-400 text-sm leading-relaxed">
+                   <p className="font-sans text-gray-400 text-base leading-relaxed">
                      {cap.desc}
                    </p>
                 </div>

@@ -24,7 +24,8 @@ const About: React.FC = () => {
 
   return (
     <section className="min-h-screen py-16 bg-surface relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Expanded Container */}
+      <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16">
         
         <div className="mb-16">
           <h2 className="font-display text-5xl font-black text-white uppercase mb-6">
@@ -37,19 +38,19 @@ const About: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, idx) => (
-            <div key={idx} className={`bg-black p-8 border-t-4 ${member.color} relative group hover:bg-white/5 transition-colors duration-300`}>
+            <div key={idx} className={`bg-black p-10 border-t-4 ${member.color} relative group hover:bg-white/5 transition-colors duration-300`}>
               <div className="absolute top-4 right-4 text-4xl font-display font-bold text-white/5 group-hover:text-white/10 select-none">
                 0{idx + 1}
               </div>
               
-              <h3 className="font-display text-2xl font-bold text-white uppercase mb-1">
+              <h3 className="font-display text-2xl font-bold text-white uppercase mb-2">
                 {member.name}
               </h3>
-              <span className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-6 block border-b border-white/10 pb-4">
+              <span className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-8 block border-b border-white/10 pb-4">
                 {member.role}
               </span>
               
-              <p className="text-gray-400 leading-relaxed text-sm">
+              <p className="text-gray-400 leading-relaxed text-base">
                 {member.desc}
               </p>
             </div>

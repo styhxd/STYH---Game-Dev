@@ -21,8 +21,8 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
         <div className="absolute inset-0 bg-grid-pattern bg-[length:60px_60px]"></div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-20 px-4 max-w-7xl mx-auto w-full pt-10 pb-20 flex flex-col justify-center h-full">
+      {/* Main Content - Expanded Width */}
+      <div className="relative z-20 w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 pt-10 pb-20 flex flex-col justify-center h-full">
         
         <div className="mb-4 inline-flex items-center gap-3 border-l-2 border-brand-accent pl-4">
           <span className="font-mono text-xs md:text-sm text-brand-accent uppercase tracking-[0.3em] font-bold">
