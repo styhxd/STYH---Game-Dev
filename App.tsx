@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Expertise from './components/Services';
+import Expertise from './components/Expertise';
+import Games from './components/Games';
 import About from './components/About';
 import Contact from './components/Contact';
 import HoldingPortal from './components/HoldingPortal';
 
 // Define available pages
-export type Page = 'home' | 'expertise' | 'studio' | 'contact';
+export type Page = 'home' | 'games' | 'expertise' | 'studio' | 'contact';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -16,8 +17,10 @@ const App: React.FC = () => {
     switch (currentPage) {
       case 'home':
         return <Hero setPage={setCurrentPage} />;
+      case 'games':
+        return <Games />;
       case 'expertise':
-        return <Expertise />;
+        return <Expertise setPage={setCurrentPage} />;
       case 'studio':
         return <About />;
       case 'contact':

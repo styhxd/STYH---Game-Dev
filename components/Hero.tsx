@@ -26,37 +26,37 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
         
         <div className="mb-4 inline-flex items-center gap-3 border-l-2 border-brand-accent pl-4">
           <span className="font-mono text-xs md:text-sm text-brand-accent uppercase tracking-[0.3em] font-bold">
-            Interactive Systems Division
+            Independent Game Studio
           </span>
         </div>
 
-        {/* The Brand Name as the Hero Title */}
-        <h1 className="font-display font-black text-9xl md:text-[12rem] lg:text-[14rem] tracking-tighter text-white uppercase leading-[0.8] mb-2 mix-blend-screen">
+        {/* The Brand Name as the Hero Title - MASSIVE */}
+        <h1 className="font-display font-black text-9xl md:text-[12rem] lg:text-[14rem] tracking-tighter text-white uppercase leading-[0.8] mb-4 mix-blend-screen drop-shadow-2xl">
           STYH
           <span className="text-brand-accent">.</span>
         </h1>
         
         {/* The Philosophy */}
         <h2 className="font-display font-bold text-2xl md:text-5xl text-gray-500 uppercase tracking-widest mb-10 pl-2 flex flex-col md:block">
-          <span className="text-white">CÓDIGO</span>
+          <span className="text-white">CRIAMOS</span>
           <span className="hidden md:inline mx-4 text-brand-secondary">//</span>
-          <span className="text-white">ARTE</span>
+          <span className="text-white">PUBLICAMOS</span>
           <span className="hidden md:inline mx-4 text-brand-secondary">//</span>
-          <span className="text-white">CONTROLE</span>
+          <span className="text-white">EVOLUÍMOS</span>
         </h2>
         
         <p className="font-sans text-lg text-gray-400 mb-12 max-w-xl leading-relaxed pl-2 border-l border-white/10 ml-2">
-          Nós não apenas jogamos. Nós arquitetamos. <br/>
-          Desenvolvimento Unity & Unreal de alto nível para quem exige performance absoluta.
+          Desenvolvedores da nossa própria história. <br/> 
+          Criadores do <strong className="text-white">Vital Rush</strong> e especialistas em Unity & Unreal. <br/>
+          Seu projeto pode ser o próximo.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto pl-2">
           <button 
-            onClick={() => setPage('contact')}
+            onClick={() => setPage('games')}
             className="group relative px-10 py-5 bg-white text-black font-display font-bold text-sm uppercase tracking-widest hover:bg-brand-accent hover:text-white transition-all duration-300 clip-path-slant min-w-[220px]"
-            style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
           >
-             <span className="relative z-10">Iniciar Protocolo</span>
+             <span className="relative z-10">Jogar Agora</span>
              <div className="absolute inset-0 bg-brand-accent transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out -z-0"></div>
           </button>
           
@@ -64,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
             onClick={() => setPage('expertise')}
             className="px-10 py-5 border border-white/20 text-white font-display font-bold text-sm uppercase tracking-widest hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300 min-w-[220px]"
           >
-            Explorar Stack
+            Contratar Studio
           </button>
         </div>
       </div>
@@ -73,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
       <div className="absolute right-8 bottom-8 hidden lg:flex flex-col items-end gap-2 z-20">
          <div className="w-1 h-24 bg-gradient-to-b from-brand-accent to-transparent"></div>
          <span className="font-mono text-[10px] text-gray-500 uppercase tracking-widest writing-mode-vertical">
-            System Online • Ver 2.0
+            System Online • Ver 2.1
          </span>
       </div>
     </div>

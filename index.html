@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STYH | Game Development</title>
     
-    <!-- React Dependencies (UMD for maximum stability) -->
-    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-    
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,9 +17,9 @@
               deep: '#050505',
               surface: '#0f0f0f',
               brand: {
-                primary: '#ffffff', // Branco Puro (Minimalista/Bold)
-                secondary: '#3b82f6', // Azul Tecnológico
-                accent: '#ff003c' // Vermelho Alerta
+                primary: '#ffffff',
+                secondary: '#3b82f6',
+                accent: '#ff003c'
               }
             },
             fontFamily: {
@@ -37,11 +33,19 @@
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'float': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'spin-slower': 'spin 20s linear infinite',
+              'spin-reverse-slow': 'spin-reverse 12s linear infinite',
+              'spin-reverse-slower': 'spin-reverse 20s linear infinite',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-10px)' },
+              },
+              'spin-reverse': {
+                'from': { transform: 'rotate(360deg)' },
+                'to': { transform: 'rotate(0deg)' },
               }
             }
           }
@@ -71,23 +75,18 @@
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
       }
 
-      .glass-card {
-        background: rgba(15, 15, 15, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(8px);
+      .clip-path-slant {
+        clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+      }
+      
+      .clip-path-polygon {
+         clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
       }
 
-      .glass-card:hover {
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-      
       .cyber-button {
-        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-      }
-      
-      .text-outline {
-        -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-        color: transparent;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
       }
 
       /* Custom Scrollbar */
