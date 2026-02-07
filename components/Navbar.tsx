@@ -40,10 +40,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
           : 'bg-gradient-to-b from-black/90 to-transparent border-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* FIXED: Changed from max-w-7xl mx-auto to w-full with generous padding for better edge alignment */}
+      <div className="w-full px-6 md:px-12 lg:px-16">
         <div className="flex items-center justify-between h-14">
           
-          {/* Logo - Fortified */}
+          {/* Logo - Aligned to far left */}
           <div 
             className="flex-shrink-0 flex items-center gap-4 cursor-pointer group select-none"
             onClick={() => handleNav('home')}
@@ -60,9 +61,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
              </div>
           </div>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav - Aligned to far right */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-2">
+            <div className="flex items-center space-x-2">
               {navLinks.map((link) => (
                 <button
                   key={link.id}

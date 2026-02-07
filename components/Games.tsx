@@ -8,21 +8,24 @@ const Games: React.FC = () => {
       {/* --- VITAL RUSH SECTION --- */}
       <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
         
-        {/* Background Image & Overlay - FIXED: Full width cover */}
+        {/* Background Image & Overlay - FIXED: Seamless blending */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://lh3.googleusercontent.com/d/1i4NAyU7cvCCdQP-P0PPFlYWiOxtzu2lG" 
             alt="Vital Rush Background" 
             className="w-full h-full object-cover opacity-60"
           />
-          {/* Vignette & Darkening Overlay to ensure text readability */}
+          {/* Side Gradients to remove "Horizontal Limit" effect */}
+          <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent z-10"></div>
+          <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent z-10"></div>
+          
+          {/* Main Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-10"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-20 pb-20">
-          {/* FIXED: Increased gap to prevent overlapping */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             
             {/* Text Content */}
@@ -32,9 +35,10 @@ const Games: React.FC = () => {
                 <span className="text-red-500 font-mono text-[10px] uppercase tracking-widest font-bold">Já Disponível • Android</span>
               </div>
               
+              {/* RESTORED: Gradient Text with padding fix to prevent H clipping */}
               <h1 className="font-display font-black text-6xl md:text-8xl italic uppercase text-white mb-6 leading-[0.85] tracking-tighter drop-shadow-2xl">
                 VITAL <br/>
-                <span className="text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.6)] pr-4">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700 pr-4 drop-shadow-[0_0_25px_rgba(220,38,38,0.4)]">
                   RUSH
                 </span>
               </h1>
@@ -65,7 +69,7 @@ const Games: React.FC = () => {
               </div>
             </div>
 
-            {/* Visuals / Character Art - FIXED: Better positioning and containment */}
+            {/* Visuals / Character Art */}
             <div className="order-1 lg:order-2 relative h-[400px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end">
                
                {/* Orbit System Container */}
@@ -119,8 +123,6 @@ const Games: React.FC = () => {
       {/* --- KEYA SECTION --- */}
       <section className="relative min-h-[80vh] w-full flex items-center bg-deep border-b border-white/5 py-20 overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
-         
-         {/* Decorative Grid for Keya */}
          <div className="absolute inset-0 bg-grid-pattern bg-[length:60px_60px] opacity-[0.03]"></div>
 
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
