@@ -1,0 +1,56 @@
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Expertise from './components/Services';
+import About from './components/About';
+import Contact from './components/Contact';
+import HoldingPortal from './components/HoldingPortal';
+
+// Define available pages
+export type Page = 'home' | 'expertise' | 'studio' | 'contact';
+
+const App: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState<Page>('home');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Hero setPage={setCurrentPage} />;
+      case 'expertise':
+        return <Expertise />;
+      case 'studio':
+        return <About />;
+      case 'contact':
+        return <Contact />;
+      default:
+        return <Hero setPage={setCurrentPage} />;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans flex flex-col">
+      <Navbar currentPage={currentPage} setPage={setCurrentPage} />
+      
+      {/* Main Content Area with top padding to account for fixed navbar */}
+      <main className="flex-grow pt-20 relative z-10">
+        {renderPage()}
+      </main>
+
+      <footer className="py-8 bg-black border-t border-white/10 text-center relative z-10 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center">
+          <h2 className="font-display font-black text-2xl text-white mb-2 uppercase tracking-tighter">STYH</h2>
+          <p className="text-gray-600 text-[10px] font-mono mb-2 uppercase tracking-widest">
+            © {new Date().getFullYear()} STYH GAMES • Ferraz de Vasconcelos - SP
+          </p>
+          <div className="flex gap-4 text-[10px] text-gray-700 font-mono uppercase">
+            <span>Paulo Gabriel L.S.</span> • <span>Daniel Pinhal Filho</span> • <span>Douglas Ambrósio</span>
+          </div>
+        </div>
+      </footer>
+
+      <HoldingPortal />
+    </div>
+  );
+};
+
+export default App;
