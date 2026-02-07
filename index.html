@@ -88,6 +88,13 @@
         overflow: hidden;
         transition: all 0.3s ease;
       }
+      
+      /* Loader Animation */
+      .loader-text {
+        font-family: 'Orbitron', monospace;
+        letter-spacing: 0.2em;
+        animation: pulse 2s infinite;
+      }
 
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
@@ -104,21 +111,43 @@
         background: #fff;
       }
     </style>
-  <script type="importmap">
+    
+    <!-- FAILSAFE 1: Strict Version Pinning to avoid Dual React Instance -->
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@18.3.1",
+    "react": "https://esm.sh/react@18.3.1?dev",
     "react/": "https://esm.sh/react@18.3.1/",
-    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
-    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?dev",
+    "react-dom": "https://esm.sh/react-dom@18.3.1?dev",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
   }
 }
 </script>
+    
+    <!-- FAILSAFE 2: Global Error Trap -->
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        console.error("CRITICAL SYSTEM FAILURE:", msg, error);
+        const root = document.getElementById('root');
+        if (root) {
+          root.innerHTML += '<div style="color:red; font-family:monospace; padding:20px; border:1px solid red; background:rgba(20,0,0,0.9); position:fixed; bottom:0; left:0; width:100%; z-index:9999;">SYSTEM ERROR: ' + msg + '</div>';
+        }
+      };
+    </script>
 </head>
   <body>
     <div class="noise-overlay"></div>
-    <div id="root"></div>
+    
+    <!-- FAILSAFE 3: Visual Loading State (Replaced by React if successful) -->
+    <div id="root" class="w-full h-screen flex flex-col items-center justify-center bg-black text-white">
+      <div class="loader-text text-brand-accent text-sm md:text-xl">INICIANDO SISTEMA STYH...</div>
+      <div class="mt-4 w-48 h-1 bg-gray-900 overflow-hidden">
+        <div class="w-full h-full bg-white animate-pulse"></div>
+      </div>
+      <div class="mt-2 text-xs text-gray-600 font-mono">Loading Modules...</div>
+    </div>
+    
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>
