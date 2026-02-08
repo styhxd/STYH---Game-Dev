@@ -7,7 +7,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ setPage }) => {
   return (
-    <div className="relative min-h-[calc(100vh-80px)] w-full flex items-center bg-black overflow-hidden">
+    <div className="relative min-h-screen w-full flex items-center bg-black overflow-hidden">
       
       {/* Background Massive Watermark - The Brand Foundation */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center z-0 pointer-events-none select-none">
@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
       </div>
 
       {/* Main Content - Expanded Width for Desktop */}
-      <div className="relative z-20 w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 pt-10 pb-20 flex flex-col justify-center h-full">
+      <div className="relative z-20 w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-20 flex flex-col justify-center h-full">
         
         <div className="mb-4 inline-flex items-center gap-3 border-l-2 border-brand-accent pl-4">
           <span className="font-mono text-xs md:text-sm text-brand-accent uppercase tracking-[0.3em] font-bold">

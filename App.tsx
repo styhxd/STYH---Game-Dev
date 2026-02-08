@@ -31,12 +31,12 @@ const App: React.FC = () => {
   };
 
   return (
-    // FAILSAFE: w-full and max-w-full enforcement at the root level
+    // REMOVED 'pt-20' from main to fix black line issue. Content now starts at absolute top.
     <div className="w-full max-w-[100vw] min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans flex flex-col overflow-x-hidden">
       <Navbar currentPage={currentPage} setPage={setCurrentPage} />
       
-      {/* Main Content Area with top padding to account for fixed navbar */}
-      <main className="flex-grow pt-20 relative z-10 w-full">
+      {/* Main Content Area - z-index managed by components */}
+      <main className="flex-grow relative z-10 w-full">
         {renderPage()}
       </main>
 

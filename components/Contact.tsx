@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact: React.FC = () => {
   return (
-    <section className="min-h-screen py-16 bg-deep relative flex items-center">
+    <section className="min-h-screen pt-24 pb-16 bg-deep relative flex items-center">
       {/* Expanded Container */}
       <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
         

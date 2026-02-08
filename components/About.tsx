@@ -23,7 +23,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen py-16 bg-surface relative">
+    <section className="min-h-screen pt-24 pb-16 bg-surface relative">
       {/* Expanded Container */}
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16">
         

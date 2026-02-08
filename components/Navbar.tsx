@@ -33,12 +33,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
   };
 
   return (
-    // FIX: Increased opacity from bg-black/60 to bg-black/90 to block underlying text better.
-    // Added stronger shadow.
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full ${
         scrolled || isMobileMenuOpen 
-          ? 'bg-black/90 border-b border-white/5 backdrop-blur-xl py-2 shadow-2xl' 
+          ? 'bg-black/95 border-b border-white/5 backdrop-blur-xl py-2 shadow-2xl' 
           : 'bg-transparent py-6 border-transparent'
       }`}
     >
@@ -51,11 +49,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
             onClick={() => handleNav('home')}
           >
              {/* 
-                1. SYMBOL (SVG)
-                Added 'drop-shadow-[0_2px_5px_rgba(0,0,0,0.9)]' to ensure visibility against white backgrounds 
-                if the navbar transparency lets them through.
+                1. SYMBOL (SVG) - CROPADO
+                Usamos viewBox="100 380 240 270" para focar apenas na geometria do ícone.
              */}
-             <div className="relative h-14 w-auto sm:h-20 transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_5px_rgba(0,0,0,0.9)]">
+             <div className="relative h-14 w-auto sm:h-20 transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_4px_6px_rgba(0,0,0,0.9)]">
                 <svg viewBox="100 380 240 270" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                   {/* MAIN SYMBOL SHAPE */}
                   <path className="fill-white group-hover:fill-brand-accent transition-colors duration-300 ease-out" d="M216.909 380.083C225.191 379.208 230.69 383.707 237.582 387.68L261.471 401.491C283.623 414.186 305.872 426.73 328.027 439.424C334.24 442.984 336.331 448.789 336.672 455.584C337.024 462.568 336.896 469.664 336.914 476.66L336.95 517.705L336.919 550.596C336.899 562.923 338.85 576.832 326.637 584.548C313.803 592.657 300.389 599.929 287.352 607.705L249.752 630.153C244.464 633.318 229.926 642.821 224.606 643.968C220.683 644.145 214.691 644.726 211.397 642.874C204.95 639.248 198.424 635.258 192.079 631.463L154.729 609.033L125.387 591.396C105.276 579.299 102.92 579.755 103.051 554.768C103.129 539.9 102.987 523.633 102.976 508.712L102.964 475.419C102.967 440.761 101.041 446.458 130.437 429.306L160.89 411.369C175.362 402.854 189.774 394.211 204.233 385.677C208.294 383.28 212.29 381.155 216.909 380.083Z"/>
@@ -84,15 +81,15 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
              </div>
              
              {/* 
-                2. TEXT (HTML) - Smaller & Separated 
-                Added drop-shadow for better contrast
+                2. TEXT (HTML) - Menor e Separado 
+                Adicionei drop-shadow forte para garantir legibilidade
              */}
              <div className="flex flex-col justify-center drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">
                <span className="font-display font-bold text-xl sm:text-2xl tracking-tighter text-white/90 group-hover:text-white transition-colors">STYH</span>
              </div>
           </div>
 
-          {/* Desktop Nav - CHANGED BREAKPOINT TO LG TO PREVENT CLIPPING ON TABLETS */}
+          {/* Desktop Nav */}
           <div className="hidden lg:block">
             <div className="flex items-center space-x-2 xl:space-x-4">
               {navLinks.map((link) => (
@@ -118,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
             </div>
           </div>
 
-          {/* Mobile Menu Button - VISIBLE ON MD/TABLETS NOW */}
+          {/* Mobile Menu Button */}
           <div className="flex lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

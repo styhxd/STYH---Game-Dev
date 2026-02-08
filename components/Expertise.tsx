@@ -31,7 +31,7 @@ const Expertise: React.FC<ExpertiseProps> = ({ setPage }) => {
   ];
 
   return (
-    <section className="min-h-screen py-16 bg-black relative overflow-x-hidden">
+    <section className="min-h-screen pt-24 pb-16 bg-black relative overflow-x-hidden">
       {/* Expanded Container */}
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="mb-12 border-b border-white/10 pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
