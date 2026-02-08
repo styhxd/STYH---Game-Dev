@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
             onClick={() => setPage('expertise')}
             className="px-10 py-5 border border-white/20 text-white font-display font-bold text-sm uppercase tracking-widest hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300 min-w-[220px]"
           >
-            Contratar Studio
+            Contratar Estúdio
           </button>
         </div>
       </div>
@@ -74,7 +74,7 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
       <div className="absolute right-8 bottom-8 hidden lg:flex flex-col items-end gap-2 z-20">
          <div className="w-1 h-24 bg-gradient-to-b from-brand-accent to-transparent"></div>
          <span className="font-mono text-[10px] text-gray-500 uppercase tracking-widest writing-mode-vertical">
-            System Online • Ver 2.1
+            Sistema Online • Ver 2.1
          </span>
       </div>
     </div>

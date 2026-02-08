@@ -25,8 +25,8 @@ const Games: React.FC = () => {
           <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-10"></div>
         </div>
 
-        {/* EXPANDED CONTAINER: max-w-[1800px] instead of 7xl */}
-        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-20 pb-20">
+        {/* EXPANDED CONTAINER: Added massive top padding (lg:pt-64) so the Navbar Logo never overlaps the text */}
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-32 lg:pt-64 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
             
             {/* Text Content */}
@@ -109,7 +109,7 @@ const Games: React.FC = () => {
                  {/* HUD Elements decoration */}
                  <div className="absolute -bottom-8 -right-4 bg-black/80 backdrop-blur border border-red-500/30 p-3 hidden md:block z-30 shadow-lg">
                     <div className="flex justify-between items-center mb-1 gap-4">
-                      <span className="font-mono text-[10px] text-white uppercase tracking-widest">Shield</span>
+                      <span className="font-mono text-[10px] text-white uppercase tracking-widest">Escudo</span>
                       <span className="font-mono text-[10px] text-red-500 font-bold">CRIT</span>
                     </div>
                     <div className="w-40 h-1.5 bg-gray-900"><div className="w-[85%] h-full bg-red-600 relative overflow-hidden"><div className="absolute inset-0 bg-white/20 animate-pulse"></div></div></div>
@@ -161,7 +161,7 @@ const Games: React.FC = () => {
 
               <div className="mt-20 flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity">
                  <div className="h-px w-12 bg-white/20"></div>
-                 <p className="text-gray-600 font-mono text-[10px] uppercase tracking-widest">Project Status: Pre-Alpha • Concept Art Phase</p>
+                 <p className="text-gray-600 font-mono text-[10px] uppercase tracking-widest">Status do Projeto: Pré-Alpha • Fase de Arte Conceitual</p>
                  <div className="h-px w-12 bg-white/20"></div>
               </div>
 
