@@ -5,7 +5,7 @@ const About: React.FC = () => {
     {
       name: "Paulo Gabriel L.S.",
       role: "Head de Desenvolvimento",
-      desc: "Liderança técnica e visão de projeto. Responsável por garantir que a mecânica do jogo seja sólida e o código escalável.",
+      desc: "Liderança técnica e visão de projeto. Responsável por garantir que a mecânica do game seja sólida e o código escalável.",
       color: "border-brand-secondary"
     },
     {
@@ -15,7 +15,7 @@ const About: React.FC = () => {
       color: "border-brand-accent"
     },
     {
-      name: "Douglas Ambrósio",
+      name: "Douglas Ambrosio",
       role: "Direção de Arte & Design",
       desc: "Identidade visual e conceitos artísticos. Traduz ideias abstratas em assets visuais marcantes.",
       color: "border-white"
@@ -61,7 +61,7 @@ const About: React.FC = () => {
         <div className="mt-20 p-10 border border-white/10 bg-black/50 text-center">
             <h4 className="font-display font-bold text-white text-xl uppercase mb-4">Filosofia STYH</h4>
             <p className="text-gray-400 max-w-3xl mx-auto italic font-serif text-lg">
-              "Jogos são sistemas. Arte é comunicação. Nós unimos os dois sem intermediários desnecessários."
+              "Games são sistemas. Arte é comunicação. Nós unimos os dois sem intermediários desnecessários."
             </p>
         </div>
 

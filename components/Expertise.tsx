@@ -10,12 +10,12 @@ const Expertise: React.FC<ExpertiseProps> = ({ setPage }) => {
   const capabilities = [
     {
       title: "Co-Development & Porting",
-      desc: "Usamos nossa engine interna para ajudar seu estúdio. Portamos jogos para Mobile e PC com otimização extrema.",
+      desc: "Usamos nossa engine interna para ajudar seu estúdio. Portamos games para Mobile e PC com otimização extrema.",
       icon: <GamepadIcon className="w-8 h-8 md:w-10 md:h-10 text-white" />
     },
     {
       title: "Engenharia de Backend",
-      desc: "Daniel Pinhal Filho traz a arquitetura robusta dos nossos jogos para o seu sistema corporativo ou multiplayer.",
+      desc: "Daniel Pinhal Filho traz a arquitetura robusta dos nossos games para o seu sistema corporativo ou multiplayer.",
       icon: <CodeIcon className="w-8 h-8 md:w-10 md:h-10 text-brand-secondary" />
     },
     {
@@ -25,7 +25,7 @@ const Expertise: React.FC<ExpertiseProps> = ({ setPage }) => {
     },
     {
       title: "Consultoria Unity/Unreal",
-      desc: "Travou no código? O jogo não roda a 60fps? Nossa equipe técnica resolve gargalos de performance.",
+      desc: "Travou no código? O game não roda a 60fps? Nossa equipe técnica resolve gargalos de performance.",
       icon: <NetworkIcon className="w-8 h-8 md:w-10 md:h-10 text-white" />
     },
   ];
@@ -76,7 +76,7 @@ const Expertise: React.FC<ExpertiseProps> = ({ setPage }) => {
         
         <div className="mt-16 p-6 md:p-8 bg-white/5 border-l-4 border-brand-accent">
            <p className="text-gray-300 italic font-serif text-base md:text-lg leading-relaxed">
-             "Não somos apenas teóricos. Usamos diariamente as ferramentas que oferecemos aos nossos clientes para criar nossos próprios jogos de sucesso."
+             "Não somos apenas teóricos. Usamos diariamente as ferramentas que oferecemos aos nossos clientes para criar nossos próprios games de sucesso."
            </p>
         </div>
       </div>

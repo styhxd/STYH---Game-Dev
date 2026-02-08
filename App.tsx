@@ -47,7 +47,7 @@ const App: React.FC = () => {
             © {new Date().getFullYear()} STYH GAMES • Ferraz de Vasconcelos - SP
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-[10px] text-gray-700 font-mono uppercase px-4">
-            <span>Paulo Gabriel L.S.</span> • <span>Daniel Pinhal Filho</span> • <span>Douglas Ambrósio</span>
+            <span>Paulo Gabriel L.S.</span> • <span>Daniel Pinhal Filho</span> • <span>Douglas Ambrosio</span>
           </div>
         </div>
       </footer>

@@ -5,17 +5,17 @@ const Expertise: React.FC = () => {
   const capabilities = [
     {
       title: "Desenvolvimento Unity & Unreal",
-      desc: "Programação de gameplay, física e ferramentas. Criamos jogos 2D e 3D otimizados para PC, Console e Mobile.",
+      desc: "Programação de gameplay, física e ferramentas. Criamos games 2D e 3D otimizados para PC, Console e Mobile.",
       icon: <GamepadIcon className="w-10 h-10 text-white" />
     },
     {
       title: "Solução de Bugs & Backend",
-      desc: "Seu jogo trava? O multiplayer não sincroniza? Daniel resolve. Arquitetura de servidores e correção de código legado.",
+      desc: "Seu game trava? O multiplayer não sincroniza? Daniel resolve. Arquitetura de servidores e correção de código legado.",
       icon: <CodeIcon className="w-10 h-10 text-brand-secondary" />
     },
     {
       title: "Direção de Arte & Assets",
-      desc: "Concept art, UI/UX Design e Modelagem. Douglas garante que o jogo tenha uma identidade visual única e coesa.",
+      desc: "Concept art, UI/UX Design e Modelagem. Douglas garante que o game tenha uma identidade visual única e coesa.",
       icon: <BrushIcon className="w-10 h-10 text-brand-accent" />
     },
     {

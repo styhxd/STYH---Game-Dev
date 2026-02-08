@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
               <div>
                 <label className="block text-[10px] uppercase text-gray-500 mb-2">O que você precisa?</label>
                 <select className="w-full bg-black border border-white/20 px-4 py-4 text-white focus:outline-none focus:border-brand-accent transition-all font-sans">
-                  <option>Desenvolvimento de Jogo Completo</option>
+                  <option>Desenvolvimento de Game Completo</option>
                   <option>Consultoria Técnica (Daniel)</option>
                   <option>Design e Arte (Douglas)</option>
                   <option>Outros Serviços</option>

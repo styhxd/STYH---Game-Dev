@@ -21,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
 
   const navLinks: { name: string; id: Page }[] = [
     { name: 'Studio', id: 'home' },
-    { name: 'Nossos Jogos', id: 'games' }, 
+    { name: 'Nossos Games', id: 'games' }, 
     { name: 'Serviços', id: 'expertise' },
     { name: 'Equipe', id: 'studio' },
   ];
