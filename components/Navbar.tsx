@@ -27,9 +27,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
   ];
 
   const handleNav = (id: Page) => {
+    // FAILSAFE 3: Forçar scroll antes mesmo da mudança de estado
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    
     setPage(id);
     setIsMobileMenuOpen(false);
-    window.scrollTo(0, 0);
+    
+    // Reforço para garantir que o fechamento do menu mobile não afete a posição
+    setTimeout(() => {
+       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, 5);
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Expertise from './components/Expertise';
@@ -12,6 +12,19 @@ export type Page = 'home' | 'games' | 'expertise' | 'studio' | 'contact';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+
+  // FAILSAFE 1: Síncrono - Roda imediatamente após a mutação do DOM, antes do paint
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [currentPage]);
+
+  // FAILSAFE 2: Assíncrono - Garante que o scroll fique no topo caso o browser tente restaurar posição ou haja delay de renderização
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, 10);
+    return () => clearTimeout(timer);
+  }, [currentPage]);
 
   const renderPage = () => {
     switch (currentPage) {

@@ -25,8 +25,8 @@ const Games: React.FC = () => {
           <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-10"></div>
         </div>
 
-        {/* EXPANDED CONTAINER: Added massive top padding (lg:pt-64) so the Navbar Logo never overlaps the text */}
-        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-32 lg:pt-64 pb-20">
+        {/* EXPANDED CONTAINER: Reduced top padding from lg:pt-64 to lg:pt-48 per user request */}
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-32 lg:pt-48 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
             
             {/* Text Content */}
