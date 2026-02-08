@@ -26,7 +26,7 @@ const HoldingPortal: React.FC = () => {
       {/* Portal Modal / HUD */}
       <div 
         className={`
-          bg-surface border border-white/10 transition-all duration-300 ease-out overflow-hidden shadow-2xl
+          bg-surface border border-white/10 transition-all duration-300 ease-out overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.9)]
           ${isOpen ? 'w-72 h-auto opacity-100 mb-6 translate-y-0' : 'w-0 h-0 opacity-0 translate-y-10'}
         `}
       >
@@ -64,10 +64,10 @@ const HoldingPortal: React.FC = () => {
         </div>
       </div>
 
-      {/* Trigger Button */}
+      {/* Trigger Button - Stronger Shadow & Contrast */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex items-center justify-center w-14 h-14 bg-white text-black font-bold shadow-2xl hover:bg-gray-200 transition-all active:scale-95 cyber-button"
+        className="group flex items-center justify-center w-14 h-14 bg-white text-black font-bold shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] border-2 border-transparent hover:border-white/50 transition-all active:scale-95 cyber-button ring-1 ring-black/50"
       >
         <NetworkIcon className={`w-6 h-6 transition-transform duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`} />
       </button>

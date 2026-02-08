@@ -26,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
         
         <div className="mb-4 inline-flex items-center gap-3 border-l-2 border-brand-accent pl-4">
           <span className="font-mono text-xs md:text-sm text-brand-accent uppercase tracking-[0.3em] font-bold">
-            Independent Game Studio
+            Estúdio de Jogos Independente
           </span>
         </div>
 

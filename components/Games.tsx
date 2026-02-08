@@ -36,15 +36,15 @@ const Games: React.FC = () => {
                 <span className="text-red-500 font-mono text-[10px] uppercase tracking-widest font-bold">Já Disponível • Android</span>
               </div>
               
-              {/* Gradient Text Restored */}
-              <h1 className="font-display font-black text-6xl md:text-8xl italic uppercase text-white mb-6 leading-[0.85] tracking-tighter drop-shadow-2xl">
+              {/* Gradient Text Restored - Increased margin-bottom (mb-12) to prevent overlap */}
+              <h1 className="font-display font-black text-6xl md:text-8xl italic uppercase text-white mb-12 leading-[0.85] tracking-tighter drop-shadow-2xl">
                 VITAL <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700 pr-4 drop-shadow-[0_0_25px_rgba(220,38,38,0.4)]">
                   RUSH
                 </span>
               </h1>
               
-              <p className="text-gray-200 text-lg md:text-xl font-light mb-10 max-w-lg leading-relaxed drop-shadow-md">
+              <p className="text-gray-200 text-lg md:text-xl font-light mb-10 max-w-lg leading-relaxed drop-shadow-md relative z-10">
                 Você é a última linha de defesa. No controle de <span className="text-white font-bold">Vital</span>, lute dentro do organismo humano contra invasões virais implacáveis.
               </p>
 
