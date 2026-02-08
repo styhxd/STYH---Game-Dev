@@ -28,8 +28,9 @@ const About: React.FC = () => {
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16">
         
         <div className="mb-16">
-          <h2 className="font-display text-5xl font-black text-white uppercase mb-6">
-            O Núcleo <span className="text-gray-600">Operacional</span>
+          {/* FIX: Reduced mobile font size from text-5xl to text-3xl/4xl to prevent overflow on small screens */}
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase mb-6 break-words">
+            O Núcleo <br className="sm:hidden" /> <span className="text-gray-600">Operacional</span>
           </h2>
           <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
             A STYH não é uma agência inchada. Somos uma unidade tática de desenvolvimento. Cada membro lidera um pilar fundamental da produção.
