@@ -20,13 +20,6 @@ export const partnersData: PartnerConfig[] = [
     logoPath: '/logo-estudio-cria.svg',
   },
   {
-    id: 'styh',
-    name: 'STYH GAMES',
-    description: 'Desenvolvimento de jogos e experiências imersivas.',
-    url: 'https://styh.com.br',
-    logoPath: '/logo-styh.svg',
-  },
-  {
     id: 'pinus',
     name: 'PINUS DEV',
     description: 'Engenharia de software e aplicativos de alta performance.',

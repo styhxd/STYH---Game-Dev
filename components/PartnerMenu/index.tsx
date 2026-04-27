@@ -117,22 +117,42 @@ const PartnerMenu: React.FC = () => {
         </div>
       </div>
 
-      {/* FAB Button */}
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className={`group relative flex items-center justify-center w-14 h-14 bg-black border-2 transition-all duration-500 rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black
-          ${isOpen ? 'border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.2)]' : 'border-white/20 hover:border-white shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]'}
-        `}
-        aria-label="Abrir Ecossistema"
-      >
-        <img 
-          src={holdingData.logoPath} 
-          alt="CRIA PRODUTORA" 
-          className={`w-8 h-8 object-contain transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${isOpen ? 'rotate-180 opacity-50 scale-75' : 'rotate-0 opacity-100 scale-100 group-hover:scale-110'}
-          `} 
-        />
-      </button>
+      {/* Floating Buttons Container */}
+      <div className="flex flex-col items-center gap-4 relative z-50">
+        
+        {/* WhatsApp Button */}
+        <a 
+          href="https://wa.me/5511944677759?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20STYH%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20desenvolvimento%20de%20games."
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full transition-all duration-500 hover:scale-110 shadow-[0_0_20px_rgba(37,211,102,0.4)] focus:outline-none ${isOpen ? 'translate-y-4 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`}
+          aria-label="Fale conosco no WhatsApp"
+        >
+          {/* Pulsing effect */}
+          <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-25 [animation-duration:3s]"></div>
+          
+          <svg className="w-7 h-7 relative z-10" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
+          </svg>
+        </a>
+
+        {/* FAB Button */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className={`group relative flex items-center justify-center w-14 h-14 bg-black border-2 transition-all duration-500 rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black bg-opacity-90 backdrop-blur-sm
+            ${isOpen ? 'border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.2)]' : 'border-white/20 hover:border-white shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]'}
+          `}
+          aria-label="Abrir Ecossistema"
+        >
+          <img 
+            src={holdingData.logoPath} 
+            alt="CRIA PRODUTORA" 
+            className={`w-8 h-8 object-contain transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+              ${isOpen ? 'rotate-180 opacity-50 scale-75' : 'rotate-0 opacity-100 scale-100 group-hover:scale-110'}
+            `} 
+          />
+        </button>
+      </div>
       
     </div>
   );
