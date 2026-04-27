@@ -5,7 +5,7 @@ import Expertise from './components/Expertise';
 import Games from './components/Games';
 import About from './components/About';
 import Contact from './components/Contact';
-import HoldingPortal from './components/HoldingPortal';
+import PartnerMenu from './components/PartnerMenu';
 
 // Define available pages
 export type Page = 'home' | 'games' | 'expertise' | 'studio' | 'contact';
@@ -52,7 +52,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      <HoldingPortal />
+      <PartnerMenu />
     </div>
   );
 };

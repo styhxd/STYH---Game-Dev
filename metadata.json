@@ -1,5 +1,6 @@
 {
   "name": "STYH - Game Dev",
   "description": "Portfolio oficial da STYH. Desenvolvimento de games e experiências interativas.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": []
 }
