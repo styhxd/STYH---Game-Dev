@@ -1,42 +1,92 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GamepadIcon } from './Icons';
 
 const Games: React.FC = () => {
+  const [hp, setHp] = useState(100);
+  const [isDead, setIsDead] = useState(false);
+  const charRef = useRef<HTMLImageElement>(null);
+  const virusRefs = useRef<(HTMLImageElement | null)[]>([]);
+
+  useEffect(() => {
+    if (isDead) return;
+
+    let animationFrameId: number;
+    let lastTime = performance.now();
+
+    const checkCollision = (time: number) => {
+      const deltaTime = time - lastTime;
+      lastTime = time;
+
+      if (charRef.current) {
+        const charRect = charRef.current.getBoundingClientRect();
+        const charCenterX = charRect.left + charRect.width / 2;
+        const charCenterY = charRect.top + charRect.height / 2;
+
+        let isColliding = false;
+
+        virusRefs.current.forEach(virus => {
+          if (virus) {
+            const virusRect = virus.getBoundingClientRect();
+            const virusCenterX = virusRect.left + virusRect.width / 2;
+            const virusCenterY = virusRect.top + virusRect.height / 2;
+
+            const dist = Math.hypot(charCenterX - virusCenterX, charCenterY - virusCenterY);
+            // Relaxed collision threshold so it hits the edges
+            if (dist < (charRect.width / 2 + virusRect.width / 2) * 0.7) {
+              isColliding = true;
+            }
+          }
+        });
+
+        if (isColliding) {
+          setHp(prev => {
+            const next = prev - (1 * (deltaTime / 1000)); // Lose 1 HP per second of overlap
+            if (next <= 0) {
+              setIsDead(true);
+              return 0;
+            }
+            return next;
+          });
+        } else {
+           // Optionally regenerate slowly when not hitting, but prompt says just decrease slowly
+        }
+      }
+      animationFrameId = requestAnimationFrame(checkCollision);
+    };
+
+    animationFrameId = requestAnimationFrame(checkCollision);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [isDead]);
+
   return (
     <div className="w-full bg-black">
       
       {/* --- VITAL RUSH SECTION --- */}
       <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
         
-        {/* Background Image & Overlay - FIXED: Seamless blending for wide screens */}
+        {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://lh3.googleusercontent.com/d/1i4NAyU7cvCCdQP-P0PPFlYWiOxtzu2lG" 
             alt="Vital Rush Background" 
             className="w-full h-full object-cover opacity-60"
           />
-          {/* Side Gradients to remove "Horizontal Limit" effect */}
           <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent z-10"></div>
           <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent z-10"></div>
-          
-          {/* Main Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-black/30"></div>
           <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-10"></div>
         </div>
 
-        {/* EXPANDED CONTAINER: Reduced top padding from lg:pt-64 to lg:pt-48 per user request */}
-        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-32 lg:pt-48 pb-20">
+        {/* EXPANDED CONTAINER */}
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-24 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
             
             {/* Text Content */}
             <div className="order-2 lg:order-1 flex flex-col justify-center">
-              <div className="inline-flex items-center self-start gap-2 px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-full mb-8 backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <span className="text-red-500 font-mono text-[10px] uppercase tracking-widest font-bold">Já Disponível • Android</span>
-              </div>
-              
-              {/* Gradient Text Restored - Increased margin-bottom (mb-12) to prevent overlap */}
               <h1 className="font-display font-black text-6xl md:text-8xl italic uppercase text-white mb-12 leading-[0.85] tracking-tighter drop-shadow-2xl">
                 VITAL <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700 pr-4 drop-shadow-[0_0_25px_rgba(220,38,38,0.4)]">
@@ -60,8 +110,8 @@ const Games: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-6">
-                <a href="https://vital-rush.vercel.app/" target="_blank" rel="noopener noreferrer" className="cyber-button px-8 py-4 bg-red-600 text-white font-display font-black uppercase tracking-widest hover:bg-white hover:text-red-600 transition-all text-sm md:text-base shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-6 relative z-50">
+                <a href="https://vital-rush.vercel.app/" target="_blank" rel="noopener noreferrer" className="cyber-button px-8 py-4 bg-red-600 text-white font-display font-black uppercase tracking-widest hover:bg-white hover:text-red-600 transition-all text-sm md:text-base shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] flex items-center gap-3 cursor-pointer">
                   <span className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
@@ -86,41 +136,110 @@ const Games: React.FC = () => {
                  <div className="absolute inset-0 w-full h-full animate-spin-slower pointer-events-none z-20">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 lg:w-32 lg:h-32">
                       <img 
+                        ref={(el) => virusRefs.current[0] = el}
                         src="https://lh3.googleusercontent.com/d/187XZfpHZ1eTC50lflWK_wD6z20AFLUUt" 
                         alt="Inimigo Virus 1" 
-                        className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,255,0,0.4)] animate-spin-reverse-slower"
+                        className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,255,0,0.4)] animate-spin-reverse-slower pointer-events-auto cursor-crosshair hover:scale-110 transition-transform"
                       />
                     </div>
                  </div>
 
                  {/* Orbit Track 2 (Smaller, Counter-Clockwise) */}
-                 <div className="absolute inset-[15%] w-[70%] h-[70%] animate-spin-reverse-slow pointer-events-none z-0 opacity-80">
+                 <div className="absolute inset-[25%] w-[50%] h-[50%] animate-spin-reverse-slow pointer-events-none z-0 opacity-80">
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-20 h-20 lg:w-24 lg:h-24">
                       <img 
+                        ref={(el) => virusRefs.current[1] = el}
                         src="https://lh3.googleusercontent.com/d/187XZfpHZ1eTC50lflWK_wD6z20AFLUUt" 
                         alt="Inimigo Virus 2" 
-                        className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,255,0,0.4)] animate-spin-slow"
+                        className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,255,0,0.4)] animate-spin-slow pointer-events-auto cursor-crosshair hover:scale-110 transition-transform"
                       />
                     </div>
                  </div>
 
                  {/* Vital (Protagonist) - Center */}
-                 <div className="absolute inset-0 z-10 animate-float flex justify-center items-center">
+                 <div className="absolute inset-0 z-10 flex justify-center items-center pointer-events-none">
                     <img 
+                      ref={charRef}
                       src="https://lh3.googleusercontent.com/d/1_8HXUSoXuVXtjb33hb_uRZ1hvOn7VItc" 
                       alt="Vital Protagonista" 
-                      className="h-[80%] w-auto object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.15)]"
+                      className={`h-[80%] w-auto object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.15)] ${isDead ? 'opacity-30' : 'animate-float'}`}
                     />
+                    
+                    {/* DEATH SCREEN EASTER EGG OVERLAY */}
+                    {isDead && (
+                      <div className="absolute inset-0 z-50 flex items-center justify-center p-4 pointer-events-auto">
+                        <div className="w-full max-w-[320px] bg-[#0a0a0a] border border-red-900/50 p-6 flex flex-col items-center justify-center relative overflow-hidden shadow-[0_0_50px_rgba(220,38,38,0.2)]">
+                          {/* Glitch/Static noise overlay */}
+                          <div className="absolute inset-0 opacity-40 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none mix-blend-overlay"></div>
+                          <div className="absolute inset-0 bg-red-600/10 animate-pulse pointer-events-none"></div>
+                          <div className="absolute top-0 left-0 w-full h-1 bg-white/20 animate-bounce pointer-events-none opacity-50"></div>
+                          
+                          <h3 className="font-display font-black text-4xl text-center text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)] leading-none mb-8 tracking-wider animate-pulse">
+                            PACIENTE<br/>PERDIDO
+                          </h3>
+                          
+                          <div className="flex justify-between w-full border-t border-red-900/50 pt-4 mb-8 relative z-10">
+                            <div>
+                              <span className="text-red-900/80 text-[10px] font-mono tracking-widest block mb-1">PONTOS</span>
+                              <span className="text-white font-display font-bold text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">49</span>
+                            </div>
+                            <div className="text-right">
+                              <span className="text-red-900/80 text-[10px] font-mono tracking-widest block mb-1">ONDA</span>
+                              <span className="text-white font-display font-bold text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">1</span>
+                            </div>
+                          </div>
+                          
+                          <span className="text-red-900/60 text-[10px] font-mono tracking-widest uppercase mb-4 relative z-10">
+                            STATUS: TERMINADO
+                          </span>
+                          
+                          <button 
+                            onClick={() => { setHp(100); setIsDead(false); }}
+                            className="w-full py-4 bg-red-600 hover:bg-red-500 text-white font-display font-bold uppercase tracking-widest text-xs transition-colors relative z-10 hover:shadow-[0_0_20px_rgba(239,68,68,0.6)] cursor-pointer"
+                          >
+                            Próximo Paciente
+                          </button>
+                        </div>
+                      </div>
+                    )}
                  </div>
                  
-                 {/* HUD Elements decoration */}
-                 <div className="absolute -bottom-8 -right-4 bg-black/80 backdrop-blur border border-red-500/30 p-3 hidden md:block z-30 shadow-lg">
-                    <div className="flex justify-between items-center mb-1 gap-4">
-                      <span className="font-mono text-[10px] text-white uppercase tracking-widest">Escudo</span>
-                      <span className="font-mono text-[10px] text-red-500 font-bold">CRIT</span>
+                 {/* HUD Elements decoration (Easter Egg) */}
+                 <div className="absolute -bottom-8 -right-4 bg-[#0a0a0a]/90 backdrop-blur border border-red-500/30 p-3 hidden md:flex flex-col gap-2 w-48 z-30 shadow-lg pointer-events-none">
+                    <div>
+                       <div className="flex justify-between items-end mb-1">
+                         <span className="text-white text-[9px] font-mono font-bold tracking-widest uppercase">Integridade</span>
+                         <span className="text-white/70 text-[9px] font-mono">{Math.ceil(hp)}/100</span>
+                       </div>
+                       <div className="w-full h-1.5 bg-black/60 border border-red-500/30 overflow-hidden">
+                         <div className="h-full bg-red-500 transition-all duration-75" style={{ width: `${hp}%` }}></div>
+                       </div>
                     </div>
-                    <div className="w-40 h-1.5 bg-gray-900"><div className="w-[85%] h-full bg-red-600 relative overflow-hidden"><div className="absolute inset-0 bg-white/20 animate-pulse"></div></div></div>
+                    <div>
+                       <div className="flex justify-between items-end mb-1">
+                         <span className="text-white/60 text-[8px] font-mono font-bold tracking-widest uppercase">Surto</span>
+                         <span className="text-white/40 text-[8px] font-mono">0/100</span>
+                       </div>
+                       <div className="w-full h-1 bg-black/60 border border-white/10 overflow-hidden">
+                         <div className="h-full bg-white/20" style={{ width: '0%' }}></div>
+                       </div>
+                    </div>
+                    <div>
+                       <div className="flex justify-between items-end mb-1">
+                         <span className="text-white/60 text-[8px] font-mono font-bold tracking-widest uppercase">Dash</span>
+                         <span className="text-white/40 text-[8px] font-mono">41/100</span>
+                       </div>
+                       <div className="w-full h-1 bg-black/60 border border-white/10 overflow-hidden">
+                         <div className="h-full bg-white transition-all duration-75" style={{ width: '41%' }}></div>
+                       </div>
+                    </div>
+                    <div className="flex gap-1 mt-1">
+                       <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)] border border-red-400"></div>
+                       <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)] border border-red-400"></div>
+                       <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)] border border-red-400"></div>
+                    </div>
                  </div>
+
                </div>
             </div>
 
@@ -129,7 +248,7 @@ const Games: React.FC = () => {
       </section>
 
       {/* --- KEYA SECTION --- */}
-      <section className="relative min-h-[80vh] w-full flex items-center bg-deep border-b border-white/5 py-20 overflow-hidden">
+      <section className="relative min-h-screen w-full flex items-center justify-center bg-deep border-b border-white/5 py-20 overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
          <div className="absolute inset-0 bg-grid-pattern bg-[length:60px_60px] opacity-[0.03]"></div>
 
