@@ -61,12 +61,19 @@ const Games: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-6">
-                <a href="#" className="cyber-button px-8 py-4 bg-red-600 text-white font-display font-black uppercase tracking-widest hover:bg-white hover:text-red-600 transition-all text-sm md:text-base shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)]">
-                  Baixar Agora
+                <a href="https://vital-rush.vercel.app/" target="_blank" rel="noopener noreferrer" className="cyber-button px-8 py-4 bg-red-600 text-white font-display font-black uppercase tracking-widest hover:bg-white hover:text-red-600 transition-all text-sm md:text-base shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] flex items-center gap-3">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                  </span>
+                  Testar Beta Online
                 </a>
-                <span className="flex items-center text-xs text-gray-400 font-mono uppercase tracking-wide border-l border-white/20 pl-6 h-8">
-                  Google Play Store
-                </span>
+                <div className="flex flex-col border-l border-white/20 pl-6 justify-center py-1">
+                  <span className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-0.5">Lançamento em breve</span>
+                  <span className="text-xs text-gray-300 font-display font-bold uppercase tracking-wide flex items-center gap-2">
+                    Google Play Store
+                  </span>
+                </div>
               </div>
             </div>
 
