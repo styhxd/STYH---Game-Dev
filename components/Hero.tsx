@@ -48,8 +48,8 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
         
         <p className="font-sans text-base md:text-lg text-gray-400 mb-12 max-w-xl leading-relaxed pl-2 border-l border-white/10 ml-2">
           Desenvolvedores da nossa própria história. <br/> 
-          Criadores do <strong className="text-white">Vital Rush</strong> e especialistas em Unity & Unreal. <br/>
-          Seu projeto pode ser o próximo.
+          Criadores do <strong className="text-white">Vital Rush</strong> e obcecados por alta performance. <br/>
+          A excelência é a nossa única métrica.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto pl-2">
@@ -63,9 +63,9 @@ const Hero: React.FC<HeroProps> = ({ setPage }) => {
           
           <button 
             onClick={() => setPage('expertise')}
-            className="px-10 py-5 border border-white/20 text-white font-display font-bold text-sm uppercase tracking-widest hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300 min-w-[220px]"
+            className="px-10 py-5 border border-white/20 text-white font-display font-bold text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-all duration-300 min-w-[220px]"
           >
-            Contratar Estúdio
+            Nosso Foco
           </button>
         </div>
       </div>

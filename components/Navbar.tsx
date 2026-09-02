@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
   const navLinks: { name: string; id: Page }[] = [
     { name: 'Studio', id: 'home' },
     { name: 'Nossos Games', id: 'games' }, 
-    { name: 'Serviços', id: 'expertise' },
+    { name: 'Nosso Foco', id: 'expertise' },
     { name: 'Equipe', id: 'studio' },
   ];
 
@@ -110,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
                 onClick={() => handleNav('contact')}
                 className="ml-4 xl:ml-8 px-6 py-2.5 bg-brand-accent text-white font-bold font-display text-xs uppercase tracking-wider hover:bg-white hover:text-black transition-all cyber-button shadow-[0_0_10px_rgba(255,0,60,0.5)] whitespace-nowrap"
               >
-                Orçamento
+                Contato
               </button>
             </div>
           </div>
@@ -146,7 +146,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
                onClick={() => handleNav('contact')}
                className="w-full py-6 bg-white text-black font-black uppercase tracking-widest text-lg sm:text-xl cyber-button"
             >
-              Iniciar Projeto
+              Fale Conosco
             </button>
           </div>
         </div>
