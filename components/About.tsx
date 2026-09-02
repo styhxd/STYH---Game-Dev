@@ -23,44 +23,44 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen pt-24 pb-16 bg-surface relative flex items-center justify-center">
+    <section className="min-h-screen pt-32 pb-12 bg-surface relative flex items-center justify-center">
       {/* Expanded Container */}
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16">
         
-        <div className="mb-16">
+        <div className="mb-8">
           {/* FIX: Reduced mobile font size from text-5xl to text-3xl/4xl to prevent overflow on small screens */}
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase mb-6 break-words">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase mb-4 break-words">
             O Núcleo <br className="sm:hidden" /> <span className="text-gray-600">Operacional</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+          <p className="text-gray-400 max-w-2xl text-base md:text-lg font-light leading-relaxed">
             A STYH não é uma agência inchada. Somos uma unidade tática de desenvolvimento. Cada membro lidera um pilar fundamental da produção.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {team.map((member, idx) => (
-            <div key={idx} className={`bg-black p-10 border-t-4 ${member.color} relative group hover:bg-white/5 transition-colors duration-300`}>
-              <div className="absolute top-4 right-4 text-4xl font-display font-bold text-white/5 group-hover:text-white/10 select-none">
+            <div key={idx} className={`bg-black p-6 lg:p-8 border-t-4 ${member.color} relative group hover:bg-white/5 transition-colors duration-300`}>
+              <div className="absolute top-4 right-4 text-3xl font-display font-bold text-white/5 group-hover:text-white/10 select-none">
                 0{idx + 1}
               </div>
               
-              <h3 className="font-display text-2xl font-bold text-white uppercase mb-2">
+              <h3 className="font-display text-xl lg:text-2xl font-bold text-white uppercase mb-2">
                 {member.name}
               </h3>
-              <span className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-8 block border-b border-white/10 pb-4">
+              <span className="font-mono text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest mb-4 block border-b border-white/10 pb-3">
                 {member.role}
               </span>
               
-              <p className="text-gray-400 leading-relaxed text-base">
+              <p className="text-gray-400 leading-relaxed text-sm lg:text-base">
                 {member.desc}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-20 p-10 border border-white/10 bg-black/50 text-center">
-            <h4 className="font-display font-bold text-white text-xl uppercase mb-4">Filosofia STYH</h4>
-            <p className="text-gray-400 max-w-3xl mx-auto italic font-serif text-lg">
+        <div className="mt-10 p-6 lg:p-8 border border-white/10 bg-black/50 text-center">
+            <h4 className="font-display font-bold text-white text-lg lg:text-xl uppercase mb-2">Filosofia STYH</h4>
+            <p className="text-gray-400 max-w-3xl mx-auto italic font-serif text-base lg:text-lg">
               "Games são sistemas. Arte é comunicação. Nós unimos os dois sem intermediários desnecessários."
             </p>
         </div>
