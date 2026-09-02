@@ -4,6 +4,8 @@ import { GamepadIcon } from './Icons';
 const Games: React.FC = () => {
   const [hp, setHp] = useState(100);
   const [isDead, setIsDead] = useState(false);
+  const [points, setPoints] = useState(0);
+  const [onda, setOnda] = useState(1);
   const charRef = useRef<HTMLImageElement>(null);
   const virusRefs = useRef<(HTMLImageElement | null)[]>([]);
 
@@ -47,9 +49,10 @@ const Games: React.FC = () => {
             }
             return next;
           });
-        } else {
-           // Optionally regenerate slowly when not hitting, but prompt says just decrease slowly
         }
+        
+        // Add points
+        setPoints(prev => prev + (deltaTime / 1000) * (Math.random() * 2 + 2));
       }
       animationFrameId = requestAnimationFrame(checkCollision);
     };
@@ -181,11 +184,11 @@ const Games: React.FC = () => {
                           <div className="flex justify-between w-full border-t border-red-900/50 pt-4 mb-8 relative z-10">
                             <div>
                               <span className="text-red-900/80 text-[10px] font-mono tracking-widest block mb-1">PONTOS</span>
-                              <span className="text-white font-display font-bold text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">49</span>
+                              <span className="text-white font-display font-bold text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">{Math.floor(points)}</span>
                             </div>
                             <div className="text-right">
                               <span className="text-red-900/80 text-[10px] font-mono tracking-widest block mb-1">ONDA</span>
-                              <span className="text-white font-display font-bold text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">1</span>
+                              <span className="text-white font-display font-bold text-2xl drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">{onda}</span>
                             </div>
                           </div>
                           
@@ -194,8 +197,9 @@ const Games: React.FC = () => {
                           </span>
                           
                           <button 
-                            onClick={() => { setHp(100); setIsDead(false); }}
+                            onClick={() => { setHp(100); setIsDead(false); setOnda(prev => prev + 1); }}
                             className="w-full py-4 bg-red-600 hover:bg-red-500 text-white font-display font-bold uppercase tracking-widest text-xs transition-colors relative z-10 hover:shadow-[0_0_20px_rgba(239,68,68,0.6)] cursor-pointer"
+                            style={{ clipPath: 'polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)' }}
                           >
                             Próximo Paciente
                           </button>
